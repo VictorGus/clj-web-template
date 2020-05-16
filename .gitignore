@@ -1,9 +1,8 @@
 pom.xml
 pom.xml.asc
-app.jar
 *.jar
 *.class
-/resources/public/js
+/ui/resources/public/js
 build.dev
 /lib/
 /classes/
