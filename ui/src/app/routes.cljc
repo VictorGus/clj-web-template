@@ -1,6 +1,6 @@
 (ns app.routes)
 
-(def routes {:. :patients/index})
+(def routes {:. :app.sample-page.model/sample})
 
 (defn route-index* [route pth]
   (merge

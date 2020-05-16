@@ -1,2 +1,0 @@
-(ns ui.calendar-model)
-

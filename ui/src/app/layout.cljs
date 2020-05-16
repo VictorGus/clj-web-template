@@ -1,4 +1,4 @@
-(ns ui.layout
+(ns app.layout
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [app.styles :as styles]

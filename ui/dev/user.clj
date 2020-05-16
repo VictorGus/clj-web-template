@@ -6,21 +6,21 @@
             [ring.adapter.jetty :refer [run-jetty]]
             [app.core :as server]))
 
-(def route-set #{"/"})
+;; (def route-set #{"/"})
 
-(defn initial-handler [req]
-  (or
-   (when (route-set (:uri req))
-     (some-> (resource-response "index.html" {:root "public"})
-             (content-type "text/html; charset=utf-8")))
-   (not-found "Not found")))
+;; (defn initial-handler [req]
+;;   (or
+;;    (when (route-set (:uri req))
+;;      (some-> (resource-response "index.html" {:root "public"})
+;;              (content-type "text/html; charset=utf-8")))
+;;    (not-found "Not found")))
 
-(defn mk-handler [dispatch]
-  (fn [req]
-    (let [resp (dispatch req)]
-      resp)))
+;; (defn mk-handler [dispatch]
+;;   (fn [req]
+;;     (let [resp (dispatch req)]
+;;       resp)))
 
-(def handler (-> initial-handler mk-handler (wrap-defaults site-defaults)))
+;; (def handler (-> initial-handler mk-handler (wrap-defaults site-defaults)))
 
 (def figwheel-options
   {:id "app"
@@ -31,7 +31,7 @@
              :output-dir "resources/public/js/out"}
    :config {:watch-dirs ["src"]
             :mode :serve
-            :ring-handler #'handler
+            #_:ring-handler #_#'handler ;;IN A CASE IF YOU WANT TO USE A CUSTOM HANDLER
             :ring-server-options {:port 3449}}})
 
 (defn run-ui [opts]

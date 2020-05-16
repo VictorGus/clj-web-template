@@ -5,16 +5,19 @@
             [zframes.redirect :as redirect]
             [zframes.flash :as flash]
             [zframes.cookies :as cookies]
+            [zframes.routing]
             [app.routes :as routes]
             [app.pages :as pages]
-            [app.layout :as layout]))
+            [app.layout :as layout]
+            [app.sample-page.view]))
 
 (rf/reg-event-fx
  ::initialize
  [(rf/inject-cofx :window-location)]
  (fn [{location :location db :db} _]
-   {:db (assoc-in db [:xhr :config :base-url] "http://localhost:9090")
-    :route-map/start {}}))
+   {:db (-> db
+            (assoc-in [:xhr :config :base-url] "http://localhost:9090")
+            (assoc :route-map/routes routes/routes))}))
 
 (defn not-found-page []
   [:h1 "Not found"])
@@ -24,6 +27,8 @@
     (fn []
       (let [page (get @pages/pages (:match @route))
             params (:params @route)]
+        (println @route)
+        (println @pages/pages)
         [layout/layout
          (if page
            [page params]
