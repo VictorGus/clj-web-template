@@ -1,0 +1,1 @@
+{"version":3,"file":"\/home\/victor\/Documents\/Pet-Projects\/web-project-template\/ui\/resources\/public\/js\/out\/app\/dev.js","sources":["dev.cljs"],"lineCount":10,"mappings":";AAAA;;;;AAIA,AAACA;AACD,AAACC;AACD,AAACC","names":["devtools.core\/install!","cljs.core\/enable-console-print!","app.core\/mount-root"]}
