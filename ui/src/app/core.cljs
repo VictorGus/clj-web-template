@@ -17,7 +17,8 @@
  (fn [{location :location db :db} _]
    {:db (-> db
             (assoc-in [:xhr :config :base-url] "http://localhost:9090")
-            (assoc :route-map/routes routes/routes))}))
+            (assoc :route-map/routes routes/routes))
+    :route-map/start {}}))
 
 (defn not-found-page []
   [:h1 "Not found"])
